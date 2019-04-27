@@ -1,0 +1,46 @@
+# server:
+#   port: 8081
+
+spring:
+  application:
+    name: department
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_DATABASE_USER}:${MONGO_DATABASE_PASSWORD}@mongodb/${MONGO_DATABASE_NAME}
+  profiles:
+    active: console-json
+        
+logging:
+  #pattern: 
+  #  console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    ROOT: ERROR
+    org.springframework: INFO
+    hu.takarek.ose: INFO
+    #hu.greatit.demo.scdf.services.driver.messaging.DriverSender: DEBUG
+
+microservices:
+  employee:
+    url: http://${EMPLOYEE_SERVICE}:8080
+
+#Metrics related configurations
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+metric:
+  conf:
+    smid: DEP-123
+    type: metrics  #can be: metrics, alerts
+
+VERSION: "1.0"

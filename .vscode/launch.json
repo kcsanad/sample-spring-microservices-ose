@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DepartmentApplication<department-service>",
+            "request": "launch",
+            "env": { "MONGO_DATABASE_USER":"mongoadmin", "MONGO_DATABASE_PASSWORD":"welcome1", "MONGO_DATABASE_NAME":"admin", "EMPLOYEE_SERVICE":"localhost" },
+            "mainClass": "hu.takarek.ose.department.DepartmentApplication",
+            "projectName": "department-service"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-EmployeeApplication<employee-service>",
+            "request": "launch",
+            "env": { "MONGO_DATABASE_USER":"mongoadmin", "MONGO_DATABASE_PASSWORD":"welcome1", "MONGO_DATABASE_NAME":"admin" },
+            "mainClass": "hu.takarek.ose.employee.EmployeeApplication",
+            "projectName": "employee-service"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OrganizationApplication<organization-service>",
+            "request": "launch",
+            "env": { "MONGO_DATABASE_USER":"mongoadmin", "MONGO_DATABASE_PASSWORD":"welcome1", "MONGO_DATABASE_NAME":"admin", "EMPLOYEE_SERVICE":"localhost", "DEPARTMENT_SERVICE":"localhost" },
+            "mainClass": "hu.takarek.ose.organization.OrganizationApplication",
+            "projectName": "organization-service"
+        }
+    ]
+}
